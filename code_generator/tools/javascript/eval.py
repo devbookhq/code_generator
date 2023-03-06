@@ -1,6 +1,7 @@
 import requests
 
-url = 'http://localhost:3000/api/exec/js'
+# url = 'http://localhost:3000/api/exec/js'
+url = 'https://ai-api-gray.vercel.app/api/exec/js'
 
 
 def eval(code: str):
