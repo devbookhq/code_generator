@@ -57,11 +57,21 @@ def generate_req_handler(blocks: List[str], method: str) -> str:
   )
 
   prompt = PREFIX.format(method=method)
+  print("== FIRST")
+  print(prompt)
+  print("== FIRST ==")
 
   for idx, block in enumerate(blocks):
-    prompt += '{}. '.format(idx+1) + block + '\n'
+    prompt = prompt + '\n' + '{}. '.format(idx+1) + block + '\n'
 
-  prompt += SUFFIX.format(method=method)
+  print("== SECOND")
+  print(prompt)
+  print("== SECOND ==")
+
+  prompt = prompt + "\n" + SUFFIX.format(method=method)
+  print("== THIRD")
+  print(prompt)
+  print("== THIRD ==")
 
   handler_code = executor.run(prompt).strip('`').strip()
   return prompt, handler_code
