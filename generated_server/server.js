@@ -1,19 +1,19 @@
-const express = require('express');
-const app = express();
-const port = 3001;
-
-app.use(express.json());
-
-app.post('/', (req, res) => {
-  if (req.method !== 'POST') {
-    res.status(400).send('Invalid request method');
-  } else {
-    const email = req.body.email;
-    const version = require('express/package.json').version;
-    res.status(200).json({ email, version });
+function middleware(req, res, next) {
+  if(req.method !== 'POST') {
+    return res.status(400).send('Invalid request method');
   }
-});
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+  const email = req.body.email;
+  const { createClient } = require('@supabase/supabase-js');
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_KEY;
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  supabase
+    .from('emails')
+    .insert([{ email }])
+    .then(() => {
+      next();
+    })
+    .catch((error) => {
+      return res.status(500).send(error.message);
+    });
+}
