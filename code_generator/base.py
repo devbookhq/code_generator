@@ -64,6 +64,6 @@ def generate_req_handler(blocks: List[str], method: str) -> str:
   prompt += SUFFIX.format(method=method)
 
   handler_code = executor.run(prompt).strip('`').strip()
-  return handler_code
+  return prompt, handler_code
   # server_code = server_template.replace('[HANDLER]', handler_code)
   # return server_code
