@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "code_generator"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 openai = "^0.27.0"
 langchain = { git = "https://github.com/mlejva/langchain", branch = "agents-with-openaichat" }
 python-dotenv = "^1.0.0"
