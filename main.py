@@ -3,8 +3,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from langchain.llms.openai import OpenAIChat
-from code_generator.tools.javascript.tool import JavascriptEvalTool
-from code_generator.js_agent.base import create_js_agent
+# from code_generator.tools.javascript.tool import JavascriptEvalTool
+# from code_generator.js_agent.base import create_js_agent
+from tools.javascript.tool import JavascriptEvalTool
+from js_agent.base import create_js_agent
 import subprocess
 
 

@@ -6,8 +6,8 @@ from langchain.llms.base import BaseLLM
 from langchain.agents.mrkl.base import ZeroShotAgent
 from langchain.chains.llm import LLMChain
 
-from code_generator.js_agent.prompt import PREFIX
-from code_generator.tools.javascript.tool import JavascriptEvalTool
+from js_agent.prompt import PREFIX
+from tools.javascript.tool import JavascriptEvalTool
 
 
 def create_js_agent(
