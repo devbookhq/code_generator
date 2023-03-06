@@ -2,7 +2,8 @@
 
 from langchain.tools.base import BaseTool
 
-from tools.javascript.eval import eval as js_eval
+# from tools.javascript.eval import eval as js_eval
+from code_generator.tools.javascript.eval import eval as js_eval
 
 
 class JavascriptEvalTool(BaseTool):

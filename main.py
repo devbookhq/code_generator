@@ -2,20 +2,15 @@ from dotenv import load_dotenv
 # Load .env file
 load_dotenv()
 
-from langchain.llms.openai import OpenAIChat
+# from langchain.llms.openai import OpenAIChat
 # from code_generator.tools.javascript.tool import JavascriptEvalTool
 # from code_generator.js_agent.base import create_js_agent
-from tools.javascript.tool import JavascriptEvalTool
-from js_agent.base import create_js_agent
+# from code_generator.tools.javascript.tool import JavascriptEvalTool
+from code_generator.base import generate
 import subprocess
 
 
-executor = create_js_agent(
-    llm=OpenAIChat(temperature=0, max_tokens=1000),
-    tool=JavascriptEvalTool(),
-    verbose=True,
-)
-js_code = executor.run(
+js_code = generate(
     """Write a body of an Express server function that handles incoming requests.
 The server runs on the port 3001.
 First make sure the request is of type 'POST' and then extract the field 'email' from the request's JSON body and save it to a variable.
