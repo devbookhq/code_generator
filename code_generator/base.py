@@ -40,9 +40,9 @@ const app = express();
 
 app.use(express.json());
 
-app.{method}(/, function(req, res) {
+app.{method}(/, function(req, res) {{
   // TODO: Implement body of this function based on the required logic
-})
+}})
 
 app.listen(8080, () => console.log('Listening on port 8080'));
 ```
@@ -57,21 +57,12 @@ def generate_req_handler(blocks: List[str], method: str) -> str:
   )
 
   prompt = PREFIX.format(method=method)
-  print("== FIRST")
-  print(prompt)
-  print("== FIRST ==")
 
   for idx, block in enumerate(blocks):
     prompt = prompt + '\n' + '{}. '.format(idx+1) + block + '\n'
 
-  print("== SECOND")
-  print(prompt)
-  print("== SECOND ==")
 
   prompt = prompt + "\n" + SUFFIX.format(method=method)
-  print("== THIRD")
-  print(prompt)
-  print("== THIRD ==")
 
   handler_code = executor.run(prompt).strip('`').strip()
   return prompt, handler_code
