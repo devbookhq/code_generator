@@ -1,24 +1,23 @@
 from typing import List
+import uuid
 
 from langchain.llms.openai import OpenAIChat, OpenAI
 from code_generator.tools.javascript.tool import JavascriptEvalTool
 from code_generator.js_agent.base import create_js_agent
-# from tools.javascript.tool import JavascriptEvalTool
-# from js_agent.base import create_js_agent
 
 
-server_template = """
-const express = require('express');
-const app = express();
+# server_template = """
+# const express = require('express');
+# const app = express();
 
-app.use(express.json());
+# app.use(express.json());
 
-// Insert the handler here.
-[HANDLER]
-///////////////////////////
+# // Insert the handler here.
+# [HANDLER]
+# ///////////////////////////
 
-app.listen(8080, () => console.log('Listening on port 8080'));
-"""
+# app.listen(8080, () => console.log('Listening on port 8080'));
+# """
 
 PREFIX = """Complete a body of nodejs function that handles incoming {method} requests inside an Express server.
 
@@ -48,10 +47,15 @@ app.listen(8080, () => console.log('Listening on port 8080'));
 ```
 """
 
-def generate_req_handler(blocks: List[str], method: str) -> str:
-  OpenAI(temperature=0, model_name='code-davinci-002', max_tokens=1000)
+def generate_req_handler(project_id: str, blocks: List[str], method: str) -> str:
+  run_id = str(uuid.uuid4())
+
   executor = create_js_agent(
-      llm=OpenAIChat(temperature=0, max_tokens=1000),
+      run_id=run_id,
+      project_id=project_id,
+      llm=OpenAI(temperature=0, max_tokens=1000),
+      # llm=OpenAI(temperature=0, model_name='code-davinci-002', max_tokens=1000),
+      # llm=OpenAIChat(temperature=0, max_tokens=1000),
       tool=JavascriptEvalTool(),
       verbose=True,
   )
@@ -60,7 +64,6 @@ def generate_req_handler(blocks: List[str], method: str) -> str:
 
   for idx, block in enumerate(blocks):
     prompt = prompt + '\n' + '{}. '.format(idx+1) + block + '\n'
-
 
   prompt = prompt + "\n" + SUFFIX.format(method=method)
 

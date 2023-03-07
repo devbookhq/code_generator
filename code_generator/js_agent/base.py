@@ -1,18 +1,23 @@
 from typing import Any, Optional
 
 from langchain.agents.agent import AgentExecutor
+from langchain.agents import initialize_agent
 from langchain.callbacks.base import BaseCallbackManager
 from langchain.llms.base import BaseLLM
 from langchain.agents.mrkl.base import ZeroShotAgent
 from langchain.chains.llm import LLMChain
+from langchain.callbacks.shared import SharedCallbackManager
 
 from code_generator.js_agent.prompt import PREFIX
 from code_generator.tools.javascript.tool import JavascriptEvalTool
+from code_generator.js_agent.callbacks.log import LoggerCallbackHandler
 # from js_agent.prompt import PREFIX
 # from tools.javascript.tool import JavascriptEvalTool
 
 
 def create_js_agent(
+    run_id: str,
+    project_id: str,
     llm: BaseLLM,
     tool: JavascriptEvalTool,
     callback_manager: Optional[BaseCallbackManager] = None,
@@ -34,8 +39,12 @@ def create_js_agent(
     tool_names = [tool.name for tool in tools]
     agent = ZeroShotAgent(llm_chain=llm_chain,
                           allowed_tools=tool_names, **kwargs)
+
+    cb_manager = SharedCallbackManager()
+    cb_manager.set_handler(LoggerCallbackHandler(run_id=run_id, project_id=project_id))
     return AgentExecutor.from_agent_and_tools(
         agent=agent,
         tools=tools,
         verbose=verbose,
+        callback_manager=cb_manager
     )

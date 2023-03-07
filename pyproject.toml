@@ -11,6 +11,7 @@ python = ">=3.8.1,<4.0"
 openai = "^0.27.0"
 python-dotenv = "^1.0.0"
 langchain = "^0.0.102"
+supabase = "^1.0.1"
 
 
 
