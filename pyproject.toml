@@ -9,8 +9,8 @@ packages = [{include = "code_generator"}]
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4.0"
 openai = "^0.27.0"
-langchain = { git = "https://github.com/mlejva/langchain", branch = "agents-with-openaichat" }
 python-dotenv = "^1.0.0"
+langchain = "^0.0.102"
 
 
 

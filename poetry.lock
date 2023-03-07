@@ -469,33 +469,29 @@ files = [
 
 [[package]]
 name = "langchain"
-version = "0.0.101"
+version = "0.0.102"
 description = "Building applications with LLMs through composability"
 category = "main"
 optional = false
 python-versions = ">=3.8.1,<4.0"
-files = []
-develop = false
+files = [
+    {file = "langchain-0.0.102-py3-none-any.whl", hash = "sha256:628e2dcca257837348631c87aa73c2201fd3af2e4ff7516d973e358226715b41"},
+    {file = "langchain-0.0.102.tar.gz", hash = "sha256:c49853e75810d77a6385e42dd5355b2bacd447c5c4d05fe87f26e22881531ef3"},
+]
 
 [package.dependencies]
-aiohttp = "^3.8.3"
-dataclasses-json = "^0.5.7"
-numpy = "^1"
-pydantic = "^1"
-PyYAML = "^6"
-requests = "^2"
-SQLAlchemy = "^1"
-tenacity = "^8.1.0"
+aiohttp = ">=3.8.3,<4.0.0"
+dataclasses-json = ">=0.5.7,<0.6.0"
+numpy = ">=1,<2"
+pydantic = ">=1,<2"
+PyYAML = ">=6,<7"
+requests = ">=2,<3"
+SQLAlchemy = ">=1,<2"
+tenacity = ">=8.1.0,<9.0.0"
 
 [package.extras]
 all = ["aleph-alpha-client (>=2.15.0,<3.0.0)", "anthropic (>=0.2.2,<0.3.0)", "beautifulsoup4 (>=4,<5)", "cohere (>=3,<4)", "deeplake (>=3.2.9,<4.0.0)", "elasticsearch (>=8,<9)", "faiss-cpu (>=1,<2)", "google-api-python-client (==2.70.0)", "google-search-results (>=2,<3)", "huggingface_hub (>=0,<1)", "jinja2 (>=3,<4)", "manifest-ml (>=0.0.1,<0.0.2)", "networkx (>=2.6.3,<3.0.0)", "nlpcloud (>=1,<2)", "nltk (>=3,<4)", "nomic (>=1.0.43,<2.0.0)", "openai (>=0,<1)", "opensearch-py (>=2.0.0,<3.0.0)", "pinecone-client (>=2,<3)", "pypdf (>=3.4.0,<4.0.0)", "qdrant-client (>=1.0.4,<2.0.0)", "redis (>=4,<5)", "sentence-transformers (>=2,<3)", "spacy (>=3,<4)", "tensorflow-text (>=2.11.0,<3.0.0)", "tiktoken (>=0,<1)", "torch (>=1,<2)", "transformers (>=4,<5)", "weaviate-client (>=3,<4)", "wikipedia (>=1,<2)", "wolframalpha (==5.0.0)"]
 llms = ["anthropic (>=0.2.2,<0.3.0)", "cohere (>=3,<4)", "huggingface_hub (>=0,<1)", "manifest-ml (>=0.0.1,<0.0.2)", "nlpcloud (>=1,<2)", "openai (>=0,<1)", "torch (>=1,<2)", "transformers (>=4,<5)"]
-
-[package.source]
-type = "git"
-url = "https://github.com/mlejva/langchain"
-reference = "agents-with-openaichat"
-resolved_reference = "6b6ede684dabdb90195237c2e8f616b1fee0371c"
 
 [[package]]
 name = "marshmallow"
@@ -1088,5 +1084,5 @@ multidict = ">=4.0"
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.10"
-content-hash = "169a6bcd392066151629468fb448ebefcd1b3205657cab17a4a69fcf7497df50"
+python-versions = ">=3.8.1,<4.0"
+content-hash = "d92deec4f938d2b243c4510fea25b1d1673ec6ffea9bbbd43de9dd5b3e10b69e"
