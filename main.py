@@ -4,7 +4,7 @@
 # from code_generator.tools.javascript.tool import JavascriptEvalTool
 # from code_generator.js_agent.base import create_js_agent
 # from code_generator.tools.javascript.tool import JavascriptEvalTool
-from code_generator.base import generate_req_handler
+from dbk_aicode.base import generate_req_handler
 # import subprocess
 # from supabase import create_client, Client
 

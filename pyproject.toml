@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "code-generator"
+name = "dbk-aicode"
 version = "0.1.0"
 description = ""
 authors = ["Vasek Mlejnsky <vasek.mlejnsky@gmail.com>"]
 readme = "README.md"
-packages = [{include = "code_generator"}]
+packages = [{include = "dbk_aicode"}]
 
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4.0"
