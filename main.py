@@ -10,6 +10,7 @@ def main():
     # key: str = os.environ.get("SUPABASE_KEY")
 
     # supabase: Client = create_client(url, key)
+
     # supabase.table('deployments').upsert(
     #     json={
     #         'id': '50210162-c5b1-40ac-8b8e-8a119492ef89',
