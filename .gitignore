@@ -9,7 +9,7 @@
 *.egg
 !/tests/**/*.egg
 /*.egg-info
-# /dist/*
+/dist/*
 build
 _build
 .cache
