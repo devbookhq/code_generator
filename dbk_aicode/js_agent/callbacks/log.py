@@ -4,7 +4,7 @@ from langchain.callbacks.base import BaseCallbackHandler
 from langchain.input import print_text, get_colored_text
 from langchain.schema import AgentAction, AgentFinish, LLMResult
 
-from code_generator.db.base import push_logs
+from dbk_aicode.db.base import push_logs
 
 class LoggerCallbackHandler(BaseCallbackHandler):
     """Callback Handler that prints to std out."""

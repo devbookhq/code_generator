@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dbk-aicode"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Vasek Mlejnsky <vasek.mlejnsky@gmail.com>"]
 readme = "README.md"

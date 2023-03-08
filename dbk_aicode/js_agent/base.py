@@ -8,9 +8,9 @@ from langchain.agents.mrkl.base import ZeroShotAgent
 from langchain.chains.llm import LLMChain
 from langchain.callbacks.shared import SharedCallbackManager
 
-from code_generator.js_agent.prompt import PREFIX
-from code_generator.tools.javascript.tool import JavascriptEvalTool
-from code_generator.js_agent.callbacks.log import LoggerCallbackHandler
+from dbk_aicode.js_agent.prompt import PREFIX
+from dbk_aicode.tools.javascript.tool import JavascriptEvalTool
+from dbk_aicode.js_agent.callbacks.log import LoggerCallbackHandler
 # from js_agent.prompt import PREFIX
 # from tools.javascript.tool import JavascriptEvalTool
 
